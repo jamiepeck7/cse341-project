@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localh
 
 const app = express();
 
-const cors = require('cors') // Place this with other requires (like 'path' and 'express')
+const cors = require('cors'); // Place this with other requires (like 'path' and 'express')
 
                         
 
