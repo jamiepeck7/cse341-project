@@ -22,21 +22,6 @@ const app = express();
 
 const cors = require('cors') // Place this with other requires (like 'path' and 'express')
 
-const corsOptions = {
-    origin: "https://cse341-project-jamie.herokuapp.com/",
-    optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
-
-const options = {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    family: 4
-};
-
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://jamiepeck:43v3rF%40mily@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
                         
 
 // Route setup. You can implement more in the future!
@@ -71,6 +56,22 @@ app
     res.render('pages/404', { title: '404 - Page Not Found', path: req.url });
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+  const corsOptions = {
+    origin: "https://cse341-project-jamie.herokuapp.com/",
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    //useCreateIndex: true,
+    //useFindAndModify: false,
+    family: 4
+};
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://jamiepeck:43v3rF%40mily@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
 
   mongoose
   .connect(
